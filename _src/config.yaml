@@ -1,0 +1,41 @@
+--- 
+context:
+processtree:
+   _nodeid : siteinfo
+   _desc : Produce the site
+   processor : oak
+   meta :
+      destdir: _destdir
+      name: "Osprey Knockout"
+      srcdir: _src
+   _sub :
+     -  _nodeid : ConvertToHtml
+        processor : nunjucks
+        meta :
+          k1 : v1
+          k2 : v2
+        _sub :
+     -  _nodeid : CreateTheIndex
+        processor: nunjucks
+        meta :
+          k1 : v1
+          k2 : v2
+        _sub :
+           -  _nodeid : firstPassIndex
+              processor : nunjucks
+              meta :
+                k1 : v1
+                k2 : v2
+              _sub :
+           -  _nodeid : secondPassIndex
+              processor : nunjucks
+              meta :
+                k1 : v1
+                k2 : v2
+              _sub :
+     -  _nodeid : FinalStep
+        processor : nunjucks
+        meta :
+          k1 : v1
+          k2 : v2
+        _sub :
